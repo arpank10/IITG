@@ -3,7 +3,6 @@
 import React from 'react';
 import { AsyncStorage } from 'react-native'
 import {AzureInstance, AzureLoginView} from 'react-native-azure-ad-2'
-import SplashScreen from "react-native-splash-screen";
 
 //create an AzureInstance object with your Microsoft Azure credentials
 var credentials = {
@@ -47,10 +46,8 @@ export default class AzureAuth extends React.Component {
     })
     
 
-	}
-    componentDidMount() {
-    SplashScreen.hide();
-  }  
+	};
+
   // pass the azureInstance and Login Success function to the AzureLoginView that will display
   // the authentication screen
     render() {
