@@ -5,12 +5,16 @@ import {
     StatusBar,
     StyleSheet,
     View,
-    Image
+    Image,
+    Dimensions,
 } from 'react-native';
 
 import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
-import Feed from './feed';
+import Home from './Home';
 import AzureAuth from './login';
+
+// Get screen dimensions
+const { width, height } = Dimensions.get('window');
 
 export default class App extends React.Component {
     render() {
@@ -61,8 +65,9 @@ class SplashPage extends React.Component {
     render () {
         return (
             // <View style={{flex: 1, backgroundColor: 'red', alignItems: 'center', justifyContent: 'center'}}>
-            <Image style={styles.backgroundImage} source={require('./images/launch_screen.png')}></Image>
-            // </View>
+            <View style={{flex: 1, justifyContent: 'center'}}>
+                <Image style={styles.backgroundImage} source={require('../images/splash.jpg')}></Image>
+            </View>
         );
     }
 }
@@ -74,9 +79,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     backgroundImage: {
-        flex: 1,
-        width: null,
-        height: null,
+        width: width,
+        height: width*9/16,
         resizeMode: 'cover'
     }
 });
@@ -88,7 +92,7 @@ const styles = StyleSheet.create({
 // goes here.
 
 const AppStack = createStackNavigator(
-    { Feed : Feed },
+    { Home : Home },
     {
         headerMode: 'none',
         navigationOptions: {

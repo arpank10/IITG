@@ -7,6 +7,8 @@ buildscript {
         compileSdkVersion = 27
         targetSdkVersion = 26
         supportLibVersion = "27.1.1"
+        googlePlayServicesVersion = "11.8.0"
+        androidMapsUtilsVersion = "0.5+"
     }
     repositories {
         jcenter()
@@ -23,12 +25,23 @@ buildscript {
 allprojects {
     repositories {
         mavenLocal()
+        maven {
+            url "https://maven.google.com"
+        }
         jcenter()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
-        google()
+        configurations.all {
+            resolutionStrategy {
+                force 'com.facebook.android:facebook-android-sdk:4.31.0'
+                force 'com.google.android.gms:play-services-base:11.8.0'
+                force 'com.google.android.gms:play-services-maps:11.8.0'
+                force 'com.google.android.gms:play-services-gcm:11.8.0'
+                force 'com.google.android.gms:play-services-location:11.8.0'
+            }
+        }
     }
 }
 
