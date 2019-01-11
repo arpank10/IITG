@@ -34,7 +34,6 @@ export default class NewsFeed extends Component {
             <Container>
 
                 <CustomHeader title="All news" drawerOpen={() => this.props.navigation.navigate('DrawerOpen')} />
-
                 <Content
                     contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 10 }}>
                     <Text>
