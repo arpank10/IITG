@@ -11,7 +11,7 @@ import {
 
 import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
 import Home from './Home';
-import AzureAuth from './login';
+import AzureAuth from './Login';
 
 // Get screen dimensions
 const { width, height } = Dimensions.get('window');

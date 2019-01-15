@@ -8,7 +8,9 @@ import DepartmentFeed from "./DepartmentFeed";
 import { Container, Content, Icon, Header, Body } from 'native-base';
 import { DrawerNavigator, StackNavigator, DrawerItems, SafeAreaView } from 'react-navigation';
 import CampusMap from "./CampusMap";
-import Profile from "./profile";
+import Profile from "./Profile";
+import MessMenu from './MessMenu';
+import BusTiming from './BusTiming';
 
 
 const instructions = Platform.select({
@@ -59,6 +61,12 @@ const MyHome = DrawerNavigator({
         },
         CampusMap: {
             screen: CampusMap
+        },
+        BusTimings:{
+            screen: BusTiming
+        },
+        MessMenu: {
+            screen: MessMenu
         },
         Profile: {
             screen : Profile
