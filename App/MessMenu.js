@@ -2,9 +2,10 @@
 
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Picker, Image} from 'react-native';
+import {Dimensions,Platform, StyleSheet, Text, View, Picker, Image} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import FIcons from "react-native-vector-icons/FontAwesome";
+const { width, height } = Dimensions.get('window');;
 export default class MessMenu extends Component {
     static navigationOptions = ({ navigation }) => ({
         title: "Mess Menu ",
@@ -18,7 +19,7 @@ export default class MessMenu extends Component {
             />
 
     });
-    state = {hostel : 'url_lohit', pickerValue : 'lohit'}
+    state = {hostel : 'url_siang', pickerValue : 'siang'}
     componentDidMount(){
 /*        return fetch('http://www.json-generator.com/api/json/get/bUiimXujIi?indent=2')
             .then((response) => response.json())
@@ -44,10 +45,15 @@ export default class MessMenu extends Component {
                         this.setState({pickerValue : value})
                         this.setState({hostel: this.state.dataSource[value]});
                     }}>
+                    <Picker.item label='Siang' value='siang'/>
                     <Picker.Item label="Lohit" value="lohit" />
                     <Picker.Item label="Manas" value="manas" />
                 </Picker>
-                <Text style = {styles.text}>{this.state.hostel}</Text>
+                {/*<Text style = {styles.text}>{this.state.hostel}</Text>*/}
+                <Image
+                    style={{width: '100%', height: width*1.30}}
+                    source={require('./../images/siang_mess.jpg')}
+                />
                 {/* replace uri of image with {this.state.hostel} */}
                 {/* <Image
           style={{width: 50, height: 50}}
