@@ -37,8 +37,7 @@ export default class HostelFeed extends Component {
 
                 <CustomHeader
                     title="Hostel Feed"
-                    // drawerOpen={() => this.props.navigation.navigate("DrawerOpen")}
-                    drawerOpen={() => this.print()}
+                    drawerOpen={() => this.props.navigation.openDrawer()}
 
                 />
                 <Content contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 10 }}>

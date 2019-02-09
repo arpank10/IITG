@@ -13,6 +13,8 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
+import {Container} from "native-base";
+import CustomHeader from "./CustomHeader";
 
 export default class Profile extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -59,26 +61,26 @@ export default class Profile extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-          <View style={styles.header}></View>
-          {/* <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/> */}
-          <Image style={styles.avatar} source={require('./../images/avatar6.png')}/>
-          <View style={styles.body}>
-            <View style={styles.bodyContent}>
-              <Text style={styles.name}>{this.state.userName}</Text>
-              <Text style={styles.roll}>{this.state.userRollno}</Text>
-              <Text style={styles.stream}>{this.state.userStream}</Text>
-              <Text style={styles.mail}>{this.state.userMail}</Text>
-              
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text>View ID Card</Text>  
-              </TouchableOpacity>              
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Upload ID Card</Text> 
-              </TouchableOpacity>
-            </View>
-        </View>
-      </View>
+              <View style={styles.container}>
+                  <View style={styles.header}></View>
+                  {/* <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/> */}
+                  <Image style={styles.avatar} source={require('./../images/avatar6.png')}/>
+                  <View style={styles.body}>
+                    <View style={styles.bodyContent}>
+                      <Text style={styles.name}>{this.state.userName}</Text>
+                      <Text style={styles.roll}>{this.state.userRollno}</Text>
+                      <Text style={styles.stream}>{this.state.userStream}</Text>
+                      <Text style={styles.mail}>{this.state.userMail}</Text>
+
+                      <TouchableOpacity style={styles.buttonContainer}>
+                        <Text>View ID Card</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity style={styles.buttonContainer}>
+                        <Text>Upload ID Card</Text>
+                      </TouchableOpacity>
+                    </View>
+                </View>
+              </View>
     );
   }
 }

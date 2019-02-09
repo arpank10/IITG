@@ -34,7 +34,15 @@ export default class CampusMap extends Component {
     };
   }
   render() {
-    return <MapNavigator />;
+    return (
+        <Container>
+            <CustomHeader
+                title="Campus Map"
+                drawerOpen={() => this.props.navigation.openDrawer()}
+            />
+            <MapNavigator />
+        </Container>
+    );
   }
 }
 class Home extends Component {
@@ -50,10 +58,6 @@ class Home extends Component {
   render(){
     return(
       <Container>
-          <CustomHeader
-              title="Campus Map"
-              drawerOpen={() => this.props.navigation.navigate("DrawerOpen")}
-          />
              <TouchableHighlight
              style={styles.button}
              onPress = {() => this._openGoogleMaps()}>

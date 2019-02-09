@@ -31,7 +31,7 @@ export default class DepartmentFeed extends Component {
             <Container>
                 <CustomHeader
                     title="Department Feed"
-                    drawerOpen={() => this.props.navigation.navigate("DrawerOpen")}
+                    drawerOpen={() => this.props.navigation.openDrawer()}
                 />
                 <Content contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 10 }}>
                     <Text>

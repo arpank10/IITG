@@ -12,6 +12,7 @@ import {
 import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
 import Home from './Home';
 import AzureAuth from './Login';
+import FormPage from './FormPage';
 
 // Get screen dimensions
 const { width, height } = Dimensions.get('window');
@@ -108,11 +109,21 @@ const AuthStack = createStackNavigator(
         }
     });
 
+const FormStack = createStackNavigator(
+    { FormPage : FormPage},
+    {
+        headerMode: 'none',
+        navigationOptions: {
+            headerVisible: false,
+        }
+    });
+
 const MyNavigator =  createSwitchNavigator(
     {
         AuthLoading: AuthLoadingScreen,
         App: AppStack,
         Auth: AuthStack,
+        Form: FormStack,
     },
     {
         initialRouteName: 'AuthLoading',

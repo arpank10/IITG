@@ -11,7 +11,7 @@ import CampusMap from "./CampusMap";
 import Profile from "./Profile";
 import MessMenu from './MessMenu';
 import BusTiming from './BusTiming';
-
+import IpCalculator from './IpCalculator';
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -64,6 +64,9 @@ const MyHome = DrawerNavigator({
         },
         BusTimings:{
             screen: BusTiming
+        },
+        IpCalculator: {
+            screen: IpCalculator
         },
         MessMenu: {
             screen: MessMenu

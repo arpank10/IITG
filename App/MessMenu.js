@@ -1,10 +1,9 @@
-
-
-
 import React, {Component} from 'react';
 import {Dimensions,Platform, StyleSheet, Text, View, Picker, Image} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
-import FIcons from "react-native-vector-icons/FontAwesome";
+import MIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import {Container} from "native-base";
+import CustomHeader from "./CustomHeader";
 const { width, height } = Dimensions.get('window');;
 export default class MessMenu extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -12,9 +11,9 @@ export default class MessMenu extends Component {
         headerLeft: <Icon name="ios-menu" style={{ paddingLeft: 10 }} onPress={() => navigation.navigate('DrawerOpen')} />,
         drawerLabel: 'Mess Menu ',
         drawerIcon:
-            <FIcons
+            <MIcons
                 size={26}
-                name={"user"}
+                name={"food"}
                 style={[styles.icon]}
             />
 
@@ -38,6 +37,11 @@ export default class MessMenu extends Component {
     }
     render() {
         return (
+            <Container>
+                <CustomHeader
+                    title="Mess Menu"
+                    drawerOpen={() => this.props.navigation.openDrawer()}
+                />
             <View>
                 <Picker
                     selectedValue={this.state.pickerValue}
@@ -60,6 +64,7 @@ export default class MessMenu extends Component {
           source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
         /> */}
             </View>
+            </Container>
         );
     }
 }

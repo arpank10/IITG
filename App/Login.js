@@ -3,6 +3,7 @@
 import React from 'react';
 import { AsyncStorage } from 'react-native'
 import {AzureInstance, AzureLoginView} from 'react-native-azure-ad-2'
+import {urls} from "./Constants";
 
 //create an AzureInstance object with your Microsoft Azure credentials
 var credentials = {
@@ -29,6 +30,33 @@ export default class AzureAuth extends React.Component {
         AsyncStorage.setItem('rollno',result.surname);
         AsyncStorage.setItem('stream',result.jobTitle);
         AsyncStorage.setItem('mail',result.mail);
+        //     fetch('http://5e2908c3.ngrok.io/api/profile/RollNumber', {
+        //     method: 'GET',
+        //     headers: {
+        //         'Accept' : 'application/json',
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         "RollNumber" : result.surname
+        //     })
+        // })
+        //     .then((response) => response.json())
+        //     .then(data => {
+        //         if(data){
+        //             this.props.navigation.navigate('Form');
+        //         }
+        //         else
+        //         {
+        //             this.props.navigation.navigate('App');
+        //         }
+
+        //     })
+        //     .catch((error) => {
+        //     console.error(error);
+        //     });
+
+
+
         this.props.navigation.navigate('App');
     };
     // function to be called after login is successful
@@ -44,7 +72,36 @@ export default class AzureAuth extends React.Component {
                 AsyncStorage.setItem('rollno',result.surname);
                 AsyncStorage.setItem('stream',result.jobTitle);
                 AsyncStorage.setItem('mail',result.mail);
-                this.props.navigation.navigate('App');
+                console.log(result.surname);
+                fetch(urls.baseUrl + 'profile/rollno/' + result.surname, {
+                    method: 'GET',
+                    headers: {
+                        'Accept' : 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    // params: {
+                    //     'RollNumber' : '160101005'
+                    // }
+
+                })
+                    .then((response) => response.json())
+                    .then(value => {
+                        console.log(value);
+                        if(value.data){
+                            this.props.navigation.navigate('App');
+                        }
+                        else
+                        {
+                            this.props.navigation.navigate('Form');
+                        }
+
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+                // this.props.navigation.navigate('Form');
+
+                //   this.props.navigation.navigate('App');
             }
             else{
                 console.log("bahar vaala");
